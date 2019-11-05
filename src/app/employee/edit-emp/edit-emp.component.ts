@@ -24,13 +24,9 @@ export class EditEmpComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.service.updateEmployee(form.value).subscribe(res => {
-      this.snackBar.open( 'Update Successful !', '', {
-        duration: 4000,
-        verticalPosition: 'top'
-      });
-    }), this.snackBar.open( 'Update Fail !', '', {
-      duration: 4000, verticalPosition: 'top'});
+    this.service.updateEmployee(form.value).subscribe(
+      res => {this.snackBar.open( 'Update Successful !', '', {duration: 4000, verticalPosition: 'top'}); },
+      err => this.snackBar.open( 'Update Fail !', '', { duration: 4000, verticalPosition: 'top'}));
   }
 
   listDepartRefresh() {

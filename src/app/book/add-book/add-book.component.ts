@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material';
-import {DepartmentService} from '../../service/department.service';
+import {BookService} from '../../service/book.service';
 import {NgForm} from '@angular/forms';
 import { MatSnackBar} from '@angular/material';
 
 @Component({
-  selector: 'app-add-depart',
-  templateUrl: './add-depart.component.html',
-  styleUrls: ['./add-depart.component.scss']
+  selector: 'app-add-book',
+  templateUrl: './add-book.component.html',
+  styleUrls: ['./add-book.component.scss']
 })
-export class AddDepartComponent implements OnInit {
+export class AddBookComponent implements OnInit {
 
-  constructor(public dialogBox: MatDialogRef<AddDepartComponent>,
-              private service: DepartmentService, private snackBar: MatSnackBar) {
+  constructor(public dialogBox: MatDialogRef<AddBookComponent>,
+              private service: BookService, private snackBar: MatSnackBar) {
 
   }
 
@@ -26,7 +26,7 @@ export class AddDepartComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.service.addDepartment(form.value).subscribe(
+    this.service.addBook(form.value).subscribe(
       res => {
         this.resetForm(form);
         this.snackBar.open( 'Update Successful !', '', {duration: 4000, verticalPosition: 'top'}); },
@@ -37,7 +37,7 @@ export class AddDepartComponent implements OnInit {
     if (form != null) {
       form.resetForm();
     }
-    this.service.formData = { departmentId: 0, departmentName: ''};
+    this.service.formData = { id: 0, title: '', author :'', description : ''};
   }
 
 

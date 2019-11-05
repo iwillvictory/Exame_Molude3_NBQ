@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-between">
+  <h4>Add New Department</h4>
+  <button mat-button (click)="onClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div style="overflow: auto; height: 450px;">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" autocomplete="off">
+    <div class="mt-4 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Title</span>
+      </div>
+      <input required minlength="2" type="text"
+             class="form-control"
+             name="title"
+             #title="ngModel"
+             [(ngModel)]="service.formData.title">
+    </div>
+    <div class="text-left text-danger" *ngIf="title.invalid && title.touched">
+      Please enter Department name.
+    </div>
+    <div class="mt-4 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Author</span>
+      </div>
+      <input required minlength="2" type="text"
+             class="form-control"
+             name="author"
+             #author="ngModel"
+             [(ngModel)]="service.formData.author">
+    </div>
+    <div class="mt-4 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Description</span>
+      </div>
+      <input required minlength="2" type="text"
+             class="form-control"
+             name="description"
+             #description="ngModel"
+             [(ngModel)]="service.formData.description">
+    </div>
+
+    <button class="mt-4" mat-raised-button color="primary" type="submit"
+            [disabled]="form.invalid">Add Department</button>
+  </form>
+</div>

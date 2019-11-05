@@ -23,6 +23,10 @@ import {DepartmentService} from './service/department.service';
 import {EmployeeService} from './service/employee.service';
 import {MatButtonModule, MatDialogModule, MatIconModule, MatSortModule, MatTableModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import { BookComponent } from './book/book.component';
+import { AddBookComponent } from './book/add-book/add-book.component';
+import { EditBookComponent } from './book/edit-book/edit-book.component';
+import { ShowBookComponent } from './book/show-book/show-book.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import {HttpClientModule} from '@angular/common/http';
     AddEmpComponent,
     ShowDepartComponent,
     EditDepartComponent,
-    AddDepartComponent
+    AddDepartComponent,
+    BookComponent,
+    AddBookComponent,
+    EditBookComponent,
+    ShowBookComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +63,6 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   providers: [DepartmentService, EmployeeService],
   bootstrap: [AppComponent],
-  entryComponents: [AddDepartComponent, EditDepartComponent, AddEmpComponent, EditEmpComponent]
+  entryComponents: [AddBookComponent, EditBookComponent]
 })
 export class AppModule { }

@@ -37,16 +37,11 @@ export class AddEmpComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
-    this.service.addEmployee(form.value).subscribe(res => {
-      this.resetForm(form);
-      this.snackBar.open('Creation Successful !', '', {
-        duration: 4000,
-        verticalPosition: 'top'
-      });
-    }), this.snackBar.open('Creation Fail !', '', {
-      duration: 4000, verticalPosition: 'top'
-    });
+    this.service.addEmployee(form.value).subscribe(
+      res => {
+        this.resetForm(form);
+        this.snackBar.open( 'Update Successful !', '', {duration: 4000, verticalPosition: 'top'}); },
+      err => this.snackBar.open( 'Update Fail !', '', { duration: 4000, verticalPosition: 'top'}));
   }
 
   resetForm(form?: NgForm) {

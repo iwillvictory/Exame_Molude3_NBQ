@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-between">
+  <h4>Edit Book</h4>
+  <button mat-button (click)="onClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div style="overflow: auto; height: 450px;">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" autocomplete="off">
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Employee ID</span>
+      </div>
+      <input readonly="readonly" type="text"
+             class="form-control"
+             name="id"
+             #id="ngModel"
+             [(ngModel)]="service.formData.id">
+    </div>
+
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Title</span>
+      </div>
+      <input required minlength="2" type="text"
+             class="form-control"
+             name="title"
+             #title="ngModel"
+             [(ngModel)]="service.formData.title">
+    </div>
+    <div class="text-left text-danger" *ngIf="title.invalid && title.touched">
+      Please enter Title.
+    </div>
+
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Author</span>
+      </div>
+      <input required minlength="2" type="text"
+             class="form-control"
+             name="author"
+             #author="ngModel"
+             [(ngModel)]="service.formData.author">
+    </div>
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Description</span>
+      </div>
+      <textarea required minlength="2" type="text"
+             class="form-control"
+             name="description"
+             #description="ngModel"
+                [(ngModel)]="service.formData.description"></textarea>
+    </div>
+
+
+    <button class="m-3" mat-raised-button color="primary" type="submit"
+            [disabled]="form.invalid">Edit Employee</button>
+  </form>
+</div>
